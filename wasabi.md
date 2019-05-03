@@ -29,6 +29,7 @@ The following people are listed on the company website:
 
 Other people have contributed to the code:
 - David Molnar ([@molnardavid84](https://twitter.com/molnardavid84))
+- Dan Walmsley ([@danwalmsley](https://github.com/danwalmsley)
 
 # Install
 
@@ -61,7 +62,7 @@ Be careful. If you send all your coins from an old wallet to a new wallet (from 
 
 ### What are the fees?
 
-You pay currently pay a fee of 0.003% * Anonymity set. If the coin anonymity set of a coin is 50 then you paid 0.003% * 50 (=0.15%). If you set the target anonymity set to 53 then wasabi will continue mixing until this is reached, so you may end up with an anonymity set of say 60, and you will pay 0.003% * 53 (=0.159%).
+You pay currently pay a fee of 0.003% * Anonymity set. If the coin anonymity set of a coin is 50 then you paid 0.003% * 50 (=0.15%). If you set the target anonymity set to 53 then wasabi will continue mixing until this is reached, so you may end up with an anonymity set of say 60, and you will pay 0.003% * 60 (=0.18%).
 
 ### What is the Anonymity Set?
 
@@ -69,12 +70,16 @@ The anonymity set is effectively the size of the group you are hiding in.
 
 If 3 people take part in a CoinJoin (with equal size inputs) and there are 3 outputs then each of those output coins has an anonymity set of 3.
 
-0.1 BTC (Coin A)			0.1 BTC (Coin D)
-0.1 BTC (Coin B)	-> 	0.1 BTC (Coin E)
-0.1 BTC (Coin C)			0.1 BTC (Coin F)
+```
+0.1 BTC (Alice)       0.1 BTC (Anon set 3)
+0.3 BTC (Bob) 	  ->  0.1 BTC (Anon set 3)
+0.4 BTC (Charlie)     0.1 BTC (Anon set 3)
+                      0.2 BTC (Change Coin Bob)
+                      0.3 BTC (Change Coin Charlie)
+```
 
-There is no way to know which of the output coins (D,E & F) are owned by which of the input coins (A,B & C).
-All an observer knows is that a specific output coin (say Coin D) is owned by one of the owners of one of the input Coins (A, B & C) i.e. 3 people - hence an anonymity set of 3.
+There is no way to know which of the anon set output coins are owned by which of the input owners.
+All an observer knows is that a specific anon set output coin is owned by one of the owners of one of the input Coins i.e. 3 people - hence an anonymity set of 3.
 
 ### How Do I change the default number of mixing rounds (the Anonymity Set)?
 
@@ -84,7 +89,7 @@ Go to File>Open>Config and change the value of **N** in "MixUntilAnonymitySet": 
 
 Yes. 
 In a round with a ~0.1 BTC minimum, you could mix ~ 0.3 BTC and get a ~ 0.1 BTC output & a ~ 0.2 BTC output.
-Similarly, with a 0.7 BTC input you would expect the following outputs: ~ 0.1, ~ 0.2, ~ 0.4 BTC
+Similarly, with a 0.7 BTC input you would expect the following outputs: ~ 0.1, ~ 0.2, ~ 0.4 BTC. The value of equal outputs created is 0.1 BTC ^ 2.
 
 ### Why is the minimum mixing amount a weird number?
 
@@ -103,17 +108,19 @@ Personally, I recommend sending your Zerolink Change to [Samourai Wallet](https:
 
 ### Can I recombine my mixed coins?
 
-It is advisable to limit the recombining of mixed coins because it can only decrease the privacy of said coins. That said, if you combine less than 1 BTC it is unlikely to be an issue straight away. The potential issue comes when you spend that coin. Depending on what you do with the coin you might reduce the privacy of the resulting change (if you send half your coin to an exchange for example, as they will know that you own the coin change). As a result it is best not to recombine ALL your mixed change, though you may wish to recombine some coins if you are planning on hodling for many years as this will reduce the fees required to spend the coins later.
+It is advisable to limit the recombining of mixed coins because it can only decrease the privacy of said coins. This links all the consolidated UTXOs in one transaction, creating only one output, which then clearly controls all these funds. That said, if you combine less than 1 BTC it is less likely to reveal your pre-coinjoin transaction history. The potential issue comes when you spend that coin. Depending on what you do with the coin you might reduce the privacy of the resulting change (if you send half your coin to an exchange for example, as they will know that you own the coin change). As a result it is best not to recombine ALL your mixed change, though you may wish to recombine some coins if you are planning on hodling for many years as this will reduce the fees required to spend the coins later.
 
 ### Am I safe to send my mixed coins to my hardware wallet?
 
 Most hardware wallets communicate with servers to provide you with your balance. This reveals your public key to the server, which damages your privacy - the hardware company can now theoretically link together all your addresses. As a result **it is not recommended** that you send your mixed coins to an address associated with your hardware wallet unless you are confident that you have set up your hardware wallet in a way that it does not communicate with a 3rd party server (see below). 
 
-### How can I set up my hardware wallet properly?
+You can however manage your hardware wallet with the Wasabi interface.
+
+### How can I set up my hardware wallet with Wasabi properly?
 
 You can currently use the following hardware wallets **with Wasabi directly**.
-- Coldcard Mk1
-- Trezor ModelT
+- Coldcard
+- Trezor Model T
 - Ledger Nano S
 
 Alternately you can use [electrum personal server](https://github.com/chris-belcher/electrum-personal-server). 
@@ -132,8 +139,8 @@ Not at the moment, if Wasabi and other CoinJoin tools are used by enough people 
 
 There are no hard and fast rules for what to do with the change. It is important to note that the change may be linked to your identity and should be treated as a kind of toxic waste (handled with great care).
 
-** Warning **
-Mixing change from multiple originating sources **will damage your privacy** because it will link these transactions. This is true even if you mix it with a mixed coin. It is very important that you don't send different coins to the same receiving address, even if performed as separate transactions - as this will also link the coins damaging your privacy.
+**Warning**
+Mixing change from multiple originating sources **will decrease your privacy** because it will link these transactions. This is true even if you mix it with a mixed coin. It is very important that you don't send different coins to the same receiving address, even if performed as separate transactions - as this will also link the coins damaging your privacy.
 
 **Your Options**
 - If you don't care about linking the history of the coins because they are all from the same source then you could combine them in a mix (que all the change from the same source until you reach the minimum input required to mix, currently ~ 0.1 BTC).  
