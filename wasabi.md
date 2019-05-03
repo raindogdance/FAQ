@@ -89,7 +89,7 @@ Go to File>Open>Config and change the value of **N** in "MixUntilAnonymitySet": 
 
 Yes. 
 In a round with a ~0.1 BTC minimum, you could mix ~ 0.3 BTC and get a ~ 0.1 BTC output & a ~ 0.2 BTC output.
-Similarly, with a 0.7 BTC input you would expect the following outputs: ~ 0.1, ~ 0.2, ~ 0.4 BTC. The value of equal outputs created is 0.1 BTC ^ 2.
+Similarly, with a 0.7 BTC input you would expect the following outputs: ~ 0.1, ~ 0.2, ~ 0.4 BTC. The possible values of equal output that can be created are 0.1 x 2^n where is a positive integer (or zero).
 
 ### Why is the minimum mixing amount a weird number?
 
@@ -173,7 +173,8 @@ All Wasabi network traffic goes via Tor. When Tor has issues Wasabi has issues. 
 Thanks to the developers of Wasabi - you make it possible for me to spend bitcoin without having to worry about other people knowing how little bitcoin I can afford :).
 
 Thanks to the following people for the help that they have provided to wasabi users on the wasabi subreddit which I have condensed into this FAQ.
-- [iLoveStableCoins](https://www.reddit.com/user/iLoveStableCoins) a regular poster to the wasabi wallet subreddit. (May now be an employee of [zkSNACKs!](https://old.reddit.com/r/WasabiWallet/comments/b08yme/could_chainalysis_be_participating_with_49_inputs/eifa5fe/))- - Adam Ficsor (nopara73)
+- [iLoveStableCoins](https://www.reddit.com/user/iLoveStableCoins) a regular poster to the wasabi wallet subreddit. (May now be an employee of [zkSNACKs!](https://old.reddit.com/r/WasabiWallet/comments/b08yme/could_chainalysis_be_participating_with_49_inputs/eifa5fe/))
+- Adam Ficsor (nopara73)
 - Lucas Ontivero (lontivero)
 
 Please issue pull requests if you have suggestions.
