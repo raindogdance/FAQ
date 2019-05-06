@@ -16,7 +16,7 @@ Note: Many of these Q&A have been copied from real users, see footer for acknowl
 
 ### Who is behind Wasabi?
 
-The Company that is developing Wasabi is zkSNACKs LTD [twitter](@Zksnacks_LTD) | [website](https://zksnacks.com/) 
+The Company that is developing Wasabi is zkSNACKs LTD ([twitter](@Zksnacks_LTD) | [website](https://zksnacks.com/))
 
 The following people are listed on the company website:
 
@@ -29,13 +29,13 @@ The following people are listed on the company website:
 
 Other people have contributed to the code:
 - David Molnar ([@molnardavid84](https://twitter.com/molnardavid84))
-- Dan Walmsley ([@danwalmsley](https://github.com/danwalmsley)
+- Dan Walmsley ([@danwalmsley](https://github.com/danwalmsley))
 
 # Install
 
 ### How do I install Wasabi?
 
-Follow [this guide](https://github.com/zkSNACKs/WalletWasabi/blob/master/WalletWasabi.Documentation/Guides/InstallInstructions.md]
+Follow [this guide](https://github.com/zkSNACKs/WalletWasabi/blob/master/WalletWasabi.Documentation/Guides/InstallInstructions.md)
 
 If you use Windows there is a [video guide](https://youtu.be/D8U53PFEsVk).
 
@@ -47,11 +47,11 @@ All Wasabi network traffic goes via Tor by default - no need to set up Tor yours
 
 ### My wallet can't send to Bech32 addresses - what wallets can I use instead? 
 
-Wasabi generates Bech32 addresses only. These addresses start with the characters bc1... Some wallets/exchanges don't yet support this type of address and my give an error message (e.g. "unknown bitcoin address"). The solution is to manage your funds with a wallet which does support Bech32. Of [all the wallets](https://en.bitcoin.it/wiki/Bech32_adoption) that support Bech32, only the following wallets have coin control;
+Wasabi generates Bech32 addresses only. These addresses start with the characters bc1... Some wallets/exchanges don't yet support this type of address and my give an error message (e.g. "unknown bitcoin address"). The solution is to manage your funds with a wallet which does support Bech32. Of [all the wallets](https://en.bitcoin.it/wiki/Bech32_adoption) that support Bech32, only the following wallets have Coin Control;
 
 | Platform 						| Recommended 																					| Other										|
 | ---------						| -----------------------------------------------------	|------------------------	|
-| Mobile (Android)		| [Samourai](https://samouraiwallet.com/)								| [Electrum] (https://play.google.com/store/apps/details?id=org.electrum.electrum)								|
+| Mobile (Android)		| [Samourai](https://samouraiwallet.com/)								| [Electrum](https://play.google.com/store/apps/details?id=org.electrum.electrum)								|
 | Desktop 						| [Bitcoin Core](https://bitcoincore.org/en/download/)	| [Electrum](https://electrum.org)	|
 
 I am not aware of any wallets for iOS which support coin control. If you are aware of any other Wallets with coin control please make a pull request.
@@ -127,11 +127,11 @@ Alternately you can use [electrum personal server](https://github.com/chris-belc
 
 ### Will I have issues spending my mixed coins? 
 
-Not at the moment, if Wasabi and other CoinJoin tools are used by enough people it is likely that this will never be an issue. See [this more comprehensive answer](https://www.reddit.com/r/WasabiWallet/comments/bggy03/will_coinjoined_coins_be_blacklisted_in_the_future/ell04nn?utm_source=share&utm_medium=web2x). Reports of users having their account banned by Bitfinex are being [investigated](https://www.reddit.com/r/WasabiWallet/comments/bggy03/will_coinjoined_coins_be_blacklisted_in_the_future/elld52h?utm_source=share&utm_medium=web2x), though it has been [confirmed](https://old.reddit.com/r/WasabiWallet/comments/beqj8r/bitfinex_lock_account/el99fun/) that this is not a universal rule being applied and appears only have affected a [single user](https://old.reddit.com/r/WasabiWallet/comments/beqj8r/bitfinex_lock_account/).
+Not at the moment, if Wasabi and other CoinJoin tools are used by enough people it is likely that this will never be an issue. See this more [comprehensive answer](https://www.reddit.com/r/WasabiWallet/comments/bggy03/will_coinjoined_coins_be_blacklisted_in_the_future/ell04nn?utm_source=share&utm_medium=web2x). Reports of users having their account banned by Bitfinex are being [investigated](https://www.reddit.com/r/WasabiWallet/comments/bggy03/will_coinjoined_coins_be_blacklisted_in_the_future/elld52h?utm_source=share&utm_medium=web2x), though it has been [confirmed](https://old.reddit.com/r/WasabiWallet/comments/beqj8r/bitfinex_lock_account/el99fun/) that this is not a universal rule being applied and appears only have affected a [single user](https://old.reddit.com/r/WasabiWallet/comments/beqj8r/bitfinex_lock_account/).
 
 |	Exchange	|	Most recent Confirmed Accepted CoinJoin	|	Source																											|
 |	--------	|	---------------------------------------	|	-------																											|
-|	Coinbase	| 18/01/2019															|	[link](https://twitter.com/a48/status/1086265253212639232) 	|
+|	Coinbase	| 18/01/2019															|	[Link](https://twitter.com/a48/status/1086265253212639232) 	|
 
 **Note: This is for reference only, and by nature this is not evidence that you will be fine sending a mixed output to the exchange, only that someone else has at some time in the past. Also - don't use coinbase.**
 
@@ -170,11 +170,12 @@ All Wasabi network traffic goes via Tor. When Tor has issues Wasabi has issues. 
 
 # Acknowledgements
 
-Thanks to the developers of Wasabi - you make it possible for me to spend bitcoin without having to worry about other people knowing how little bitcoin I can afford :).
+Thanks to the developers of Wasabi - you make it possible for me to spend bitcoin without having to worry about other people knowing how little bitcoin I can afford.
 
 Thanks to the following people for the help that they have provided to wasabi users on the wasabi subreddit which I have condensed into this FAQ.
 - [iLoveStableCoins](https://www.reddit.com/user/iLoveStableCoins) a regular poster to the wasabi wallet subreddit. (May now be an employee of [zkSNACKs!](https://old.reddit.com/r/WasabiWallet/comments/b08yme/could_chainalysis_be_participating_with_49_inputs/eifa5fe/))
-- Adam Ficsor (nopara73)
-- Lucas Ontivero (lontivero)
+- Adam Ficsor ([@nopara73](https://twitter.com/nopara73))
+- Lucas Ontivero ([@lontivero](https://twitter.com/lontivero/))
+- Max Hillebrand ([@hillebrandmax](https://twitter.com/HillebrandMax/))
 
 Please issue pull requests if you have suggestions.
