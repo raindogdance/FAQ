@@ -176,6 +176,6 @@ Thanks to the following people for the help that they have provided to wasabi us
 - [iLoveStableCoins](https://www.reddit.com/user/iLoveStableCoins) a regular poster to the wasabi wallet subreddit. (May now be an employee of [zkSNACKs!](https://old.reddit.com/r/WasabiWallet/comments/b08yme/could_chainalysis_be_participating_with_49_inputs/eifa5fe/))
 - Adam Ficsor ([@nopara73](https://twitter.com/nopara73))
 - Lucas Ontivero ([@lontivero](https://twitter.com/lontivero/))
-- Max Hillebrand ([@hillebrandmax](https://twitter.com/HillebrandMax/))
+- Max Hillebrand ([@hillebrandmax](https://twitter.com/HillebrandMax/)) for fixes made in the [original repo](https://github.com/6102bitcoin/FAQ/blob/master/wasabi.md).
 
 Please issue pull requests if you have suggestions.
