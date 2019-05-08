@@ -168,6 +168,8 @@ It is very important that you don't send different coins to the same receiving a
 
 The nature of Wasabi is that you shouldn't need to trust the devs or the wasabi coordinating server, as you can verify that the code does leak information to anyone. The dev's have gone to great lengths in an attempt to ensure that the coordinator can't steal funds or harvest information (for example, the outputs sent from your wasabi wallet are blinded, meaning that even the wasabi server can't link the outputs to the inputs). 
 
+### Do I need to 'trust' the Wasabi Server?
+
 The only known possible 'malicious' actions that the server *could* perform are two sides of the same coin;
 - blacklisted UTXO's
 Though this would not affect the users who are able to successfully mix with other 'honest/real' peers. 
