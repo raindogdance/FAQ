@@ -18,18 +18,16 @@ Note: Many of these Q&A have been copied from real users, see footer for acknowl
 
 The Company that is developing Wasabi is zkSNACKs LTD ([twitter](@Zksnacks_LTD) | [website](https://zksnacks.com/))
 
-The following people are listed on the company website:
+Members as of 2019.05.08:
 
-| Name						| Twitter 						 																		| Position							|
-| ----------------| --------------------------------------------------------|	----------------------|
-| Hajdú Gergely 	|	[@gergely_hajdu](https://twitter.com/gergely_hajdu) 		| CEO & Co-Founder			|
-| Harmat Bálint		|	[@bharmat84](https://twitter.com/bharmat84) 						| CEO & Co-Founder			|
-| Adam Ficsor			|	[@nopara73](https://twitter.com/nopara73)								| CTO										|
-| Lucas Ontivero	| [@lontivero](https://twitter.com/)											| Lead Engineer					|
-
-Other people have contributed to the code:
-- David Molnar ([@molnardavid84](https://twitter.com/molnardavid84))
-- Dan Walmsley ([@danwalmsley](https://github.com/danwalmsley))
+| Name              | Twitter                                                 | Position			         |
+| ------------------| --------------------------------------------------------|	-----------------------|
+| Gergely Hajdú 	  | [@gergely_hajdu](https://twitter.com/gergely_hajdu) 	  | Co-CEO & Co-Founder	   |
+| Bálint Harmat		  | [@bharmat84](https://twitter.com/bharmat84) 			      | Co-CEO & Co-Founder    |
+| Adam Ficsór		    | [@nopara73](https://twitter.com/nopara73)	              | Developer & Co-Founder |
+| Lucas Ontivero	  | [@lontivero](https://twitter.com/)                      | Developer & Co-Founder |
+| Dan Walmsley   	  | ([@danwalmsley](https://github.com/danwalmsley))        | Developer              |
+| Dávid Molnár   	  | ([@molnardavid84](https://twitter.com/molnardavid84))   | Developer              |
 
 # Install
 
@@ -42,6 +40,8 @@ If you use Windows there is a [video guide](https://youtu.be/D8U53PFEsVk).
 ### Do I need to run Tor?
 
 All Wasabi network traffic goes via Tor by default - no need to set up Tor yourself. If you do already have Tor, and it is running, then Wasabi will try to use that first.  
+
+You can turn off Tor in the Settings. Note that in this case you are still private, except when you coinjoin and when you broacast a transaction. In the first case, the coordinator would learn the links between your inputs and outputs based on your IP address, in the second case, if you happen to broadcast a transaction of yours to a full node that is spying on you, it will learn the link between your transaction and your IP address.
 
 # Pre-Mix
 
@@ -64,6 +64,10 @@ Be careful. If you send all your coins from an old wallet to a new wallet (from 
 
 You pay currently pay a fee of 0.003% * Anonymity set. If the coin anonymity set of a coin is 50 then you paid 0.003% * 50 (=0.15%). If you set the target anonymity set to 53 then wasabi will continue mixing until this is reached, so you may end up with an anonymity set of say 60, and you will pay 0.003% * 60 (=0.18%).
 
+There are also edge cases where you don't pay the full fee or where you pay more. For example if you're the smallest registrant to a round, you'll never pay a fee. Also when you are remixing if you cannot pay the full fee with your input, then you only pay as much as you have, but if the change amount leftover would be too small, then that's also added to the fee. Currently the minimum change amount to be payed out is 0.7% of the base denomination (~0.1BTC.)  
+
+It is also possible that you get more back from mixing than you put in. This happens when network fees go down from when the round started and when the round ended. In this case, the difference is split between the active outputs of the mix.
+
 ### What is the Anonymity Set?
 
 The anonymity set is effectively the size of the group you are hiding in. 
@@ -80,10 +84,11 @@ If 3 people take part in a CoinJoin (with equal size inputs) and there are 3 out
 
 There is no way to know which of the anon set output coins are owned by which of the input owners.
 All an observer knows is that a specific anon set output coin is owned by one of the owners of one of the input Coins i.e. 3 people - hence an anonymity set of 3.
+Your Wasabi software has limited information on what the anonymity set should be, so the anonymity set that the software presents you is just an estimation, not an accurate value. With Wasabi we are trying to do lower estimations, rather than upper ones.
 
 ### How Do I change the default desired Anonymity Set)?
 
-In the Wallet GUI, go to File>Open>Config and in the last 4 liney you see:
+In the Wallet GUI, go to File>Open>Config and in the last 4 lines you see:
 `"MixUntilAnonymitySet": 50,
 "PrivacyLevelSome": 2,
 "PrivacyLevelFine": 21,
@@ -171,7 +176,9 @@ The follow-up concern is the inverse of the above. It is possible that the serve
 
 ### 'Backend won't connect'
 
-All Wasabi network traffic goes via Tor. When Tor has issues Wasabi has issues. If the Tor Hidden Service directory does down (which is does occasionally) Wasabi now has a fall-back back to the coordinator server without a hidden service (but still over Tor). It is easiest to wait and try again some hours later. Alternatively you can go to the config file and change replace "MainNetBackendUriV3": "http://wasabiukrxmkdgve5kynjztuovbg43uxcbcxn6y2okcrsg7gb6jdmbad.onion/", with "MainNetBackendUriV3": "https://wasabiwallet.io/",
+All Wasabi network traffic goes via Tor. When Tor has issues Wasabi has issues. If the Tor Hidden Service directory does down (which is does occasionally) Wasabi now has a fall-back back to the coordinator server without a hidden service (but still over Tor). It is easiest to wait and try again some hours later. 
+
+You can turn off Tor in the Settings. Note that in this case you are still private, except when you coinjoin and when you broacast a transaction. In the first case, the coordinator would learn the links between your inputs and outputs based on your IP address, in the second case, if you happen to broadcast a transaction of yours to a full node that is spying on you, it will learn the link between your transaction and your IP address.
 
 # Acknowledgements
 
@@ -181,6 +188,6 @@ Thanks to the following people for the help that they have provided to wasabi us
 - [iLoveStableCoins](https://www.reddit.com/user/iLoveStableCoins) a regular poster to the wasabi wallet subreddit. (May now be an employee of [zkSNACKs!](https://old.reddit.com/r/WasabiWallet/comments/b08yme/could_chainalysis_be_participating_with_49_inputs/eifa5fe/))
 - Adam Ficsor ([@nopara73](https://twitter.com/nopara73))
 - Lucas Ontivero ([@lontivero](https://twitter.com/lontivero/))
-- Max Hillebrand ([@hillebrandmax](https://twitter.com/HillebrandMax/)) for fixes made in the [original repo](https://github.com/6102bitcoin/FAQ/blob/master/wasabi.md).
+- Max Hillebrand ([@hillebrandmax](https://twitter.com/HillebrandMax/))
 
 Please issue pull requests if you have suggestions.
