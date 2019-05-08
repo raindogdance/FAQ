@@ -81,9 +81,14 @@ If 3 people take part in a CoinJoin (with equal size inputs) and there are 3 out
 There is no way to know which of the anon set output coins are owned by which of the input owners.
 All an observer knows is that a specific anon set output coin is owned by one of the owners of one of the input Coins i.e. 3 people - hence an anonymity set of 3.
 
-### How Do I change the default number of mixing rounds (the Anonymity Set)?
+### How Do I change the default desired Anonymity Set)?
 
-Go to File>Open>Config and change the value of **N** in "MixUntilAnonymitySet": **N** to the Anonymity Set you desire. More is better, (arguably only up to a point). Remember that you pay a fee proportional to the Anonymity Set.
+In the Wallet GUI, go to File>Open>Config and in the last 4 liney you see:
+`"MixUntilAnonymitySet": 50,
+"PrivacyLevelSome": 2,
+"PrivacyLevelFine": 21,
+"PrivacyLevelStrong": 50`
+You can change the three values of the desired anon set of the yellow, green and checkmark shield button in the GUI. The `MixUntilAnonymitySet` is the last selected value from previous use. More is better, (arguably only up to a point). Remember that you pay a [fee](https://github.com/6102bitcoin/FAQ/blob/master/wasabi.md#what-are-the-fees) proportional to the Anonymity Set.
 
 ### Can I mix more than the round's minimum? ###
 
