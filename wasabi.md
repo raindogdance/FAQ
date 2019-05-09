@@ -98,8 +98,8 @@ You can change the three values of the desired anon set of the yellow, green and
 ### Can I mix more than the round's minimum? ###
 
 Yes. 
-In a round with a ~0.1 BTC minimum, you could mix ~ 0.3 BTC and get a ~ 0.1 BTC output & a ~ 0.2 BTC output.
-Similarly, with a 0.7 BTC input you would expect the following outputs: ~ 0.1, ~ 0.2, ~ 0.4 BTC. The possible values of equal output that can be created are 0.1 x 2^n where is a positive integer (or zero).
+In a round with a ~0.1 BTC minimum, you could mix ~0.3 BTC and get a ~0.1 BTC output & a ~0.2 BTC output.
+Similarly, with a 0.7 BTC input you would expect the following outputs: ~0.1, ~0.2, ~0.4 BTC. The possible values of equal output that can be created are 0.1 x 2^n where is a positive integer (or zero).
 
 ### Why is the minimum mixing amount a weird number?
 
@@ -155,7 +155,7 @@ You want to avoid mixing change coins where possible. If you mix change you will
 It is very important that you don't send different coins to the same receiving address (even if performed as separate transactions) as this will also link the coins together, damaging your privacy.
 
 **Your Options**
-- If you don't care about linking the history of the coins because they are all from the same source then you could combine them in a mix (que all the change from the same source until you reach the minimum input required to mix, currently ~ 0.1 BTC).  
+- If you don't care about linking the history of the coins because they are all from the same source then you could combine them in a mix (que all the change from the same source until you reach the minimum input required to mix, currently ~0.1 BTC).  
 - Mix with [Joinmarket](https://github.com/JoinMarket-Org/joinmarket-clientserver).
 - Donate them (e.g. [to the EFF](https://www.eff.org/))
 - Spend them on something that isn't a particular privacy risk (eg. gift cards).
