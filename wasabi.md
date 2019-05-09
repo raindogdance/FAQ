@@ -62,7 +62,7 @@ Be careful. If you send all your coins from an old wallet to a new wallet (from 
 
 ### What are the fees?
 
-You pay currently pay a fee of 0.003% * Anonymity set. If the coin anonymity set of a coin is 50 then you paid 0.003% * 50 (=0.15%). If you set the target anonymity set to 53 then wasabi will continue mixing until this is reached, so you may end up with an anonymity set of say 60, and you will pay 0.003% * 60 (=0.18%).
+You currently pay a fee of 0.003% * Anonymity set. If the coin anonymity set of a coin is 50 then you paid 0.003% * 50 (=0.15%). If you set the target anonymity set to 53 then wasabi will continue mixing until this is reached, so you may end up with an anonymity set of say 60, and you will pay 0.003% * 60 (=0.18%).
 
 There are also edge cases where you don't pay the full fee or where you pay more. For example if you're the smallest registrant to a round, you'll never pay a fee. Also when you are remixing if you cannot pay the full fee with your input, then you only pay as much as you have, but if the change amount leftover would be too small, then that's also added to the fee. Currently the minimum change amount to be payed out is 0.7% of the base denomination (~0.1BTC.)  
 
@@ -103,7 +103,7 @@ Similarly, with a 0.7 BTC input you would expect the following outputs: ~ 0.1, ~
 
 ### Why is the minimum mixing amount a weird number?
 
-The output value changes each round to ensure that you can que a coin and have it remix (mix over and over again - increasing the anonymity set, improving privacy). As a result the round mixing amount will often be a specific number which generally decreases as the rounds proceed, with a reset once a lower bound is reached. 
+The output value changes each round to ensure that you can queue a coin and have it remix (mix over and over again - increasing the anonymity set, improving privacy). As a result the round mixing amount will often be a specific number which generally decreases as the rounds proceed, with a reset once a lower bound is reached. 
 
 # Post-Mix
 
@@ -180,7 +180,7 @@ The follow-up concern is the inverse of the above. It is possible that the serve
 
 ### 'Backend won't connect'
 
-All Wasabi network traffic goes via Tor. When Tor has issues Wasabi has issues. If the Tor Hidden Service directory does down (which is does occasionally) Wasabi now has a fall-back back to the coordinator server without a hidden service (but still over Tor). It is easiest to wait and try again some hours later. 
+All Wasabi network traffic goes via Tor. When Tor has issues Wasabi has issues. If the Tor Hidden Service directory goes down (which is does occasionally) Wasabi now has a fall-back back to the coordinator server without a hidden service (but still over Tor). It is easiest to wait and try again some hours later. 
 
 You can turn off Tor in the Settings. Note that in this case you are still private, except when you coinjoin and when you broacast a transaction. In the first case, the coordinator would learn the links between your inputs and outputs based on your IP address, in the second case, if you happen to broadcast a transaction of yours to a full node that is spying on you, it will learn the link between your transaction and your IP address.
 
