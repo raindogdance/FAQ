@@ -1,4 +1,4 @@
-edit/master/wasabi.mdFAQ for [Wasabi Wallet](https://github.com/zkSNACKs/WalletWasabi)
+FAQ for [Wasabi Wallet](https://github.com/zkSNACKs/WalletWasabi)
 By [6102bitcoin](https://twitter.com/6102bitcoin)
 
 Note: Many of these Q&A have been copied from real users, see footer for acknowledgements. 
