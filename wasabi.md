@@ -1,4 +1,4 @@
-FAQ for [Wasabi Wallet](https://github.com/zkSNACKs/WalletWasabi)
+edit/master/wasabi.mdFAQ for [Wasabi Wallet](https://github.com/zkSNACKs/WalletWasabi)
 By [6102bitcoin](https://twitter.com/6102bitcoin)
 
 Note: Many of these Q&A have been copied from real users, see footer for acknowledgements. 
@@ -20,14 +20,14 @@ The Company that is developing Wasabi is zkSNACKs LTD ([twitter](@Zksnacks_LTD) 
 
 Members as of 2019.05.08:
 
-| Name              | Twitter                                                 | Position			         |
-| ------------------| --------------------------------------------------------|	-----------------------|
-| Gergely Hajdú 	  | [@gergely_hajdu](https://twitter.com/gergely_hajdu) 	  | Co-CEO & Co-Founder	   |
-| Bálint Harmat		  | [@bharmat84](https://twitter.com/bharmat84) 			      | Co-CEO & Co-Founder    |
-| Adam Ficsór		    | [@nopara73](https://twitter.com/nopara73)	              | Developer & Co-Founder |
-| Lucas Ontivero	  | [@lontivero](https://twitter.com/)                      | Developer & Co-Founder |
-| Dan Walmsley   	  | ([@danwalmsley](https://github.com/danwalmsley))        | Developer              |
-| Dávid Molnár   	  | ([@molnardavid84](https://twitter.com/molnardavid84))   | Developer              |
+| Name              | Twitter                                                 | Position			               |
+| ------------------| --------------------------------------------------------|	-----------------------------|
+| Gergely Hajdú 	  | [@gergely_hajdu](https://twitter.com/gergely_hajdu) 	  | Co-CEO & Co-Founder	         |
+| Bálint Harmat		  | [@bharmat84](https://twitter.com/bharmat84) 			      | Co-CEO & Co-Founder          |
+| Adam Ficsór		    | [@nopara73](https://twitter.com/nopara73)	              | CTO & Developer & Co-Founder |
+| Lucas Ontivero	  | [@lontivero](https://twitter.com/)                      | Developer & Co-Founder       |
+| Dan Walmsley   	  | ([@danwalmsley](https://github.com/danwalmsley))        | Developer                    |
+| Dávid Molnár   	  | ([@molnardavid84](https://twitter.com/molnardavid84))   | Developer                    |
 
 # Install
 
@@ -93,17 +93,26 @@ In the Wallet GUI, go to File>Open>Config and in the last 4 lines you see:
 "PrivacyLevelSome": 2,
 "PrivacyLevelFine": 21,
 "PrivacyLevelStrong": 50`
-You can change the three values of the desired anon set of the yellow, green and checkmark shield button in the GUI. The `MixUntilAnonymitySet` is the last selected value from previous use. More is better, (arguably only up to a point). Remember that you pay a [fee](https://github.com/6102bitcoin/FAQ/blob/master/wasabi.md#what-are-the-fees) proportional to the Anonymity Set.
+You can change the three values of the desired anon set of the yellow, green and checkmark shield button in the GUI. The `MixUntilAnonymitySet` is the last selected value from previous use. More is better, (arguably only up to a point). Remember that you pay a [fee](https://github.com/6102bitcoin/FAQ/blob/master/wasabi.md#what-are-the-fees) proportional to the Anonymity Set. [See more here](https://youtu.be/gWo2RAkIVrE?t=191).
 
 ### Can I mix more than the round's minimum? ###
 
 Yes. 
 In a round with a ~0.1 BTC minimum, you could mix ~0.3 BTC and get a ~0.1 BTC output & a ~0.2 BTC output.
-Similarly, with a 0.7 BTC input you would expect the following outputs: ~0.1, ~0.2, ~0.4 BTC. The possible values of equal output that can be created are 0.1 x 2^n where is a positive integer (or zero).
+Similarly, with a 0.7 BTC input you would expect the following outputs: ~0.1, ~0.2, ~0.4 BTC. The possible values of equal output that can be created are 0.1 x 2^n where is a positive integer (or zero). [See more here](https://youtu.be/PKtxzSLPWFU) and [here](https://youtu.be/3Ezru07J674).
 
 ### Why is the minimum mixing amount a weird number?
 
 The output value changes each round to ensure that you can queue a coin and have it remix (mix over and over again - increasing the anonymity set, improving privacy). As a result the round mixing amount will often be a specific number which generally decreases as the rounds proceed, with a reset once a lower bound is reached. 
+
+### How do I connect my own full node to Wasabi?
+
+There is currently a basic implementation of connecting your full node to Wasabi. The server will still send you [BIP 158 block filters](https://github.com/bitcoin/bips/blob/master/bip-0158.mediawiki), and when you realize that a block contains a transaction of yours, then you pull this block from your own full node, instead of a random P2P node. Thus, you can verify that in this actually is a valid block including your transaction. One attack vector could be that Wasabi lies to you and give you wrong filters that exclude your transaction, thus you would see in the wallet less coins than you actually control. [BIP 157 solves this](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki).
+When your full node is on the same hardware [computer, laptop] as your Wasabi wallet, then it will automatically recognize it and pull blocks from there. If your node is on a remote device [raspberry pi, nodl, server], then you can specify your local IP in line 11 of the config file. [See more here](https://youtu.be/gWo2RAkIVrE).
+
+### How do I upgrade Wasabi?
+
+You can download the software build for the different operating systems on the main [website](https://wasabiwallet.io) or better over [tor](http://wasabiukrxmkdgve5kynjztuovbg43uxcbcxn6y2okcrsg7gb6jdmbad.onion). Make sure you also download the signatures of the build and verify them for [Adam Ficsor's public key.](https://github.com/zkSNACKs/WalletWasabi/blob/master/PGP.txt) For step by step instructions, follow [this guie](https://github.com/zkSNACKs/WalletWasabi/blob/master/WalletWasabi.Documentation/Guides/InstallInstructions.md) or [see this video](https://youtu.be/DUc9A76rwX4).
 
 # Post-Mix
 
@@ -112,7 +121,9 @@ The output value changes each round to ensure that you can queue a coin and have
 Wasabi is a very good wallet, and it is advisable to manage your funds using the wallet once you have mixed. If you are going to send your funds to another wallet (say, a mobile wallet for convenience) then there are a couple of important things to consider.
 - Unless the wallet has coin control you will merge your coins which damages privacy. 
 - Unless the wallet connects to your own full node you will leak information to the server supplying the blocks/filters.
-As a result, there are few wallets that are suitable. 
+As a result, there are few wallets that are suitable.
+
+If you'd like to dive into the details of this topic, you can [read more here](https://old.reddit.com/r/WasabiWallet/comments/avxbjy/combining_mixed_coins_privacy_megathread/) and [see more here](https://www.youtube.com/watch?v=Tk8-N1kHa4g).
 
 Personally, I recommend sending your Zerolink Change to [Samourai Wallet](https://samouraiwallet.com/) or [Blockstream Green](https://blockstream.com/green/) for small-spends where you are less concerned about revealing any information. 
 
@@ -124,7 +135,7 @@ It is advisable to limit the recombining of mixed coins because it can only decr
 
 Most hardware wallets communicate with servers to provide you with your balance. This reveals your public key to the server, which damages your privacy - the hardware company can now theoretically link together all your addresses. As a result **it is not recommended** that you send your mixed coins to an address associated with your hardware wallet unless you are confident that you have set up your hardware wallet in a way that it does not communicate with a 3rd party server (see below). 
 
-You can however manage your hardware wallet with the Wasabi interface.
+You can however manage your hardware wallet with the Wasabi interface. Alternatively you can use your hardware wallet with Electrum, which connects to your Bitcoin Core through [Electrum Personal Server](https://github.com/chris-belcher/electrum-personal-server).
 
 ### How can I set up my hardware wallet with Wasabi properly?
 
