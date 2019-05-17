@@ -43,11 +43,11 @@ When it comes to bitcoin seed descriptions, words are often confused and used in
 
 | Word | Definition | Other Names |
 | ---- | ---- | ---- |
-| [**Private Key**](https://en.bitcoin.it/wiki/Private_key) | A secret 256 bit number that you use to spend bitcoin | Secret Key. | 
+| [**Private Key**](https://en.bitcoin.it/wiki/Private_key) | A secret 256 bit number that you use to spend bitcoin | Secret Key | 
 | [**Seed**](https://en.bitcoin.it/wiki/Seed_phrase) | A 256 bit number which can be used to generate a bitcoin private key. |  |
-| **Mnemonic Seed** | The seed encoded in the form of a list of words in a specific order.  | Seed Phrase / Seed Words |
-| **Non-Extended Mnemonic** | 12/24 Words (Just the Mnemonic) | Mnemonic / Seed Words | 
-| **Extended Mnemonic** | 13/25 Words: Mnemonic (12/24 words) + Passphrase (1 word)) | | 
+| **Mnemonic Seed** | The seed encoded in the form of a list of words in a specific order.  | Mnemonic / Seed Phrase / Seed Words |
+| **Non-Extended Mnemonic** | 12/24 Words (Just the Mnemonic) | Mnemonic  | 
+| **Extended Mnemonic** | 13/25 Words: Mnemonic (12/24 words) + Passphrase (1 word) | Extended Seed | 
 | **Backup** | A complete set of information from which your bitcoin can be recovered  | |
 | **Encrypted Backup** | Backup encrypted with a password (not to be confused with a passphrase) | |
 
@@ -115,7 +115,7 @@ Yes. For the reasons explained below you should have multiple redundant backups 
 ### How can I store my seed?
 Initially let us consider the case where you store a single unencrypted mnemonic seed (12 or 24 words). 
 
-| Method  						   	|----          				| Digital Theft Resistance 	| Physical Theft Resistance 		| Durability 						|
+| Method  						   	|Location          				| Digital Theft Resistance 	| Physical Theft Resistance 		| Durability 						|
 | ------    					    | ---- 				    		| -------------------------	| ------------------------------|	---------------				|
 | Screenshot              | On Phone 					  | Weak							        | Weak													|	Fragile (Deletion) 		|
 | Notes App               | On Phone					  | Weak							        | Weak													|	Fragile (Deletion)		|
