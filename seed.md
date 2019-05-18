@@ -35,7 +35,7 @@ By [6102bitcoin](https://twitter.com/6102bitcoin)
 
 Great - you have decided to control your bitcoin directly instead of using a custodial service like an exchange. This is a very wise move - exchanges fall into only two categories; those which have been hacked and those which will be hacked.
 
-By holding your own keys, you (and only you) are able to spend your bitcoin. You should take time to read this FAQ in order to understand the common errors & mistakes, and to learn the best practice in seed management. 
+By holding your own keys, you (and only you) are able to spend your bitcoin. You should take time to read this FAQ in order to understand the common errors & mistakes, and to learn the best practice in seed management. Be aware that this a general guideline. Every solution for storing your bitcoin seed will be a tradeoff between security and usability, and the level of security needed or wanted will vary from person to person, as will the threats you are trying to secure yourself against.
 
 ### Terminology
 
@@ -47,7 +47,7 @@ When it comes to bitcoin seed descriptions, words are often confused and used in
 | [**Seed**](https://en.bitcoin.it/wiki/Seed_phrase) | A 256 bit number which can be used to generate a bitcoin private key. |  |
 | **Mnemonic Seed** | The seed encoded in the form of a list of words in a specific order.  | Mnemonic / Seed Phrase / Seed Words |
 | **Non-Extended Mnemonic** | 12/24 Words (Just the Mnemonic) | Mnemonic  | 
-| **Extended Mnemonic** | 13/25 Words: Mnemonic (12/24 words) + Passphrase (1 word) | Extended Seed | 
+| **Extended Mnemonic** | 12+/24+ Words: Mnemonic (12/24 words) + Passphrase (1 word or sentence) | Extended Seed | 
 | **Backup** | A complete set of information from which your bitcoin can be recovered  | |
 | **Encrypted Backup** | Backup encrypted with a password (not to be confused with a passphrase) | |
 
@@ -59,7 +59,7 @@ With a HD wallet the bitcoin private key (which is derived from the seed) is com
 
 Typically you are presented with a mnemonic seed, a series of either 12 or 24 words from [this list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt) - it is an encoded version of your seed made to be easy to read and store. The encoding method is detailed in [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki#), but effectively each word on the wordlist corresponds with a number, and thus your 12 word mnemonic is simply an easy to write representation of a large number (your seed). 
 
-Many wallets carelessly label the mnemonic seed as just the 'seed' - take care, the mnemonic seed can be extended with an additional word (a passphrase), without which you cannot decode the actual seed (a 256 bit number) and thus, you cannot recover your bitcoin.
+Many wallets carelessly label the mnemonic seed as just the 'seed' - take care, the mnemonic seed can be extended with an additional word or sentence (a passphrase), without which you cannot decode the actual seed (a 256 bit number) and thus, you cannot recover your bitcoin.
 
 All seeds encoded using BIP39 actually consist of the mnemonic + a passphrase. More secure wallets (e.g Samourai Wallet) will give you the option to set a passphrase (not to be confused with a password). **If you use a passphrase and then forget it you will lose your bitcoin.**
 
@@ -83,7 +83,7 @@ For this reason make sure that you backup your seed somewhere that is private an
 Suppose you have a computer riddled with malware and viruses and you download some bitcoin wallet software and view the seed (or more likely the mnemonic seed). This seed is likely insecure. The viruses/malware may be taking screenshots of your computer at regular intervals and sending this data to the creator of the virus/malware. 
 If you can see your seed on screen, then potentially so can the hacker.
 
-For this reason, when non-trivial amounts of bitcoin it is crucial that you carefully control the environment in which the seed is generated. The easiest way for non-technical people to do this is to buy a 'Hardware Wallet'. These devices store all the 'secret information' required to access your bitcoin on the dedicated hardware device so that it doesn't matter if your computer has viruses/malware. 
+For this reason, with non-trivial amounts of bitcoin it is crucial that you carefully control the environment in which the seed is generated. The easiest way for non-technical people to do this is to buy a 'Hardware Wallet'. These devices store all the 'secret information' required to access your bitcoin on the dedicated hardware device so that it doesn't matter if your computer has viruses/malware. 
 
 That said, some hardware wallets are better than others so make sure that you never enter your seed into your computer - only enter it into the device itself.
 
@@ -125,14 +125,14 @@ Initially let us consider the case where you store a single unencrypted mnemonic
 | Handwritten Paper Note  | Bank Deposit Box 		| **Strong**				        | **Strong**										|	**Durable**        		|
 | Handwritten Paper Note  | Buried Somewhere 		| **Strong**				        | **Strong**										|	Fragile (Water)				|
 | Stamped Metal Sheet [1]	| In Home 					  | **Strong**				        | Weak													|	**Durable**        		|
-| Stamped Medal Sheet	    | Bank Deposit Box 		| **Strong**				        | **Strong**										|	**Durable**        		|
-| Stamped Medal Sheet	    | Buried Somewhere 		| **Strong**				        | **Strong**										|	**Durable**        		|
+| Stamped Metal Sheet	    | Bank Deposit Box 		| **Strong**				        | **Strong**										|	**Durable**        		|
+| Stamped Metal Sheet	    | Buried Somewhere 		| **Strong**				        | **Strong**										|	**Durable**        		|
 | USB (Plaintext)					| In Home 						| **Strong**				        | Weak													|	Fragile (Water/Time)	|
 | Memorised	[2]						| Brain								| **Strong**				        | **Strong**										|	Fragile (Time/Injury)	|
 
 *[1] There are many ways to do this, some are better than others - see Lopp's [initial comparison](https://medium.com/@lopp/metal-bitcoin-seed-storage-stress-test-21f47cf8e6f5) & [more recent comparison](https://youtu.be/zFN__b6ARH4?t=20593)*
 
-*[2] Often referred  to as a [Brain Wallet](https://en.bitcoin.it/wiki/Brainwallet) - Not to be confused for a wallet which you generate the mnemonic using your brain (i.e. sentence from a book) a Brain Wallet is a wallet for which you have memorised a mnemonic which was generated securely using a source of entropy.*
+*[2] Often referred  to as a [Brain Wallet](https://en.bitcoin.it/wiki/Brainwallet) - Not to be confused with a wallet which you generate the mnemonic for using your brain (i.e. sentence from a book) a Brain Wallet is a wallet for which you have memorised a mnemonic which was generated securely using a source of entropy.*
 
 There are three methods that are both Resistant to Theft and Durable;
 - Handwritten Paper Note in a Bank Deposit Box
@@ -176,6 +176,7 @@ You use either Physical or Digital Encryption Tools;
 If you do decide to use a paper backup:
 - Use waterproof ink & paper
 - Write on a hard surface so you don't indent the paper below
+- You can increase the durability of your paper backup by laminating it
 - Consider labelling your seed discreetly. Something labelled 'BITCOIN SEED' is more likely to be swept (stolen) than if you label it 'COOKIE RECEPIE', though it may be easy to forget that you did this. 
 
 Learn More: [Here](https://www.quora.com/How-do-I-maintain-a-paper-notebook-that-can-remain-for-years) and [Here](https://www.quora.com/If-I-write-with-a-pencil-on-my-notebook-will-the-writing-last-for-a-long-time-say-50-years-or-will-it-just-fade-away-gradually)
@@ -227,3 +228,5 @@ For this reason make sure that you recover bitcoin from your seed somewhere that
 ### How often should I check backups?
 
 You should definitely check your backup as part of your process for backing up. Provided that you have done this correctly there should be no need to actually sweep bitcoin from the backup unless you need the bitcoin. It is worth checking that the backup remains accessible at irregular intervals (say every 1-3 years). It is worth checking because if a single backup disappears you can recover using a secondary backup (if there is a chance that the backup was stolen) or make a replacement backup (if you are completely confident that the backup was just damaged, e.g. house fire). Don't regularly check backups (e.g. the 1st Jan each year) as this could be obvious and lead to people discovering your backup.
+
+More reading on this subject: [SmartCustodyWhitePapers](https://github.com/BlockchainCommons/SmartCustodyWhitePapers/blob/master/%23SmartCustody-_Simple_Self-Custody_Cold_Storage_Scenario.md)
