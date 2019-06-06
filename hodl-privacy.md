@@ -15,6 +15,7 @@ This list is not comprehensive (please make a pull request for suggestions) and 
     - [Wallet with Email 2FA](#wallet-with-email-2fa)
     - [Limited Block Download](#limited-block-download)
     - [HTTP](#http)
+    - [Email Confirmations](#email-confirmations)
 
 ## Motivation
 I saw a thought provoking [post](https://twitter.com/ercwl/status/1136211928873938944) on Twitter;
@@ -118,5 +119,17 @@ Your ISP can intercept all the data from the above leaks.
 
 #### Mitigation: 
 Only connect via HTTPS (look for the green padlock at the left hand side of the URL).
+
+---
+## Email Confirmations
+
+#### Action:
+You add to your hodl stash using an online exchange to send to a previously used cold-storage address.
+
+#### Data Leak: 
+Confirmation emails confirming the withdrawal leak your address to your email provider (i.e. Google/Microsoft). The exchange can also link your email to the address. 
+
+#### Mitigation
+Disable notifications if possible | Use a dedicated email not connected to your identity.
 
 ---
