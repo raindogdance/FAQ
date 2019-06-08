@@ -86,7 +86,7 @@ For this reason make sure that you backup your seed somewhere that is private an
 Suppose you have a computer riddled with malware and viruses and you download some bitcoin wallet software and view the seed (or more likely the mnemonic seed). This seed is likely insecure. The viruses/malware may be taking screenshots of your computer at regular intervals and sending this data to the creator of the virus/malware. 
 If you can see your seed on screen, then potentially so can the hacker.
 
-For this reason, when non-trivial amounts of bitcoin it is crucial that you carefully control the environment in which the seed is generated. The easiest way for non-technical people to do this is to buy a 'Hardware Wallet'. These devices store all the 'secret information' required to access your bitcoin on the dedicated hardware device so that it doesn't matter if your computer has viruses/malware. 
+For this reason, with non-trivial amounts of bitcoin it is crucial that you carefully control the environment in which the seed is generated. The easiest way for non-technical people to do this is to buy a 'Hardware Wallet'. These devices store all the 'secret information' required to access your bitcoin on the dedicated hardware device so that it doesn't matter if your computer has viruses/malware. 
 
 That said, some hardware wallets are better than others so make sure that you never enter your seed into your computer - only enter it into the device itself.
 
@@ -128,14 +128,14 @@ Initially let us consider the case where you store a single unencrypted mnemonic
 | Handwritten Paper Note  | Bank Deposit Box 		| **Strong**				        | **Strong**										|	**Durable**        		|
 | Handwritten Paper Note  | Buried Somewhere 		| **Strong**				        | **Strong**										|	Fragile (Water)				|
 | Stamped Metal Sheet [1]	| In Home 					  | **Strong**				        | Weak													|	**Durable**        		|
-| Stamped Medal Sheet	    | Bank Deposit Box 		| **Strong**				        | **Strong**										|	**Durable**        		|
-| Stamped Medal Sheet	    | Buried Somewhere 		| **Strong**				        | **Strong**										|	**Durable**        		|
+| Stamped Metal Sheet	    | Bank Deposit Box 		| **Strong**				        | **Strong**										|	**Durable**        		|
+| Stamped Metal Sheet	    | Buried Somewhere 		| **Strong**				        | **Strong**										|	**Durable**        		|
 | USB (Plaintext)					| In Home 						| **Strong**				        | Weak													|	Fragile (Water/Time)	|
 | Memorised	[2]						| Brain								| **Strong**				        | **Strong**										|	Fragile (Time/Injury)	|
 
 *[1] There are many ways to do this, some are better than others - see Lopp's [initial comparison](https://medium.com/@lopp/metal-bitcoin-seed-storage-stress-test-21f47cf8e6f5) & [more recent comparison](https://youtu.be/zFN__b6ARH4?t=20593)*
 
-*[2] Often referred  to as a [Brain Wallet](https://en.bitcoin.it/wiki/Brainwallet) - Not to be confused for a wallet which you generate the mnemonic using your brain (i.e. sentence from a book) a Brain Wallet is a wallet for which you have memorised a mnemonic which was generated securely using a source of entropy.*
+*[2] Often referred  to as a [Brain Wallet](https://en.bitcoin.it/wiki/Brainwallet) - Not to be confused with a wallet where you generate the mnemonic using your brain (i.e. sentence from a book) a Brain Wallet is a wallet with a memorised mnemonic which was generated securely using a source of entropy.*
 
 There are three methods that are both Resistant to Theft and Durable;
 - Handwritten Paper Note in a Bank Deposit Box
@@ -180,6 +180,7 @@ If you do decide to use a paper backup:
 - Use waterproof ink & paper
 - Write on a hard surface so you don't indent the paper below
 - Consider labelling your seed discreetly. Something labelled 'BITCOIN SEED' is more likely to be swept (stolen) than if you label it 'COOKIE RECEPIE', though it may be easy to forget that you did this. 
+- Laminate the paper
 
 Learn More: [Here](https://www.quora.com/How-do-I-maintain-a-paper-notebook-that-can-remain-for-years) and [Here](https://www.quora.com/If-I-write-with-a-pencil-on-my-notebook-will-the-writing-last-for-a-long-time-say-50-years-or-will-it-just-fade-away-gradually)
 
