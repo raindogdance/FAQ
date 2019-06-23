@@ -15,19 +15,22 @@ By [6102bitcoin](https://twitter.com/6102bitcoin)
 	- [Should I check my seed?](#Should-I-check-my-seed)
 3) [**Storing your Seed**](#3-Storing-your-Seed)
 	- [Why should I bother storing my seed, I only have a small amount of bitcoin?](#Why-should-I-bother-storing-my-seed-I-only-have-a-small-amount-of-bitcoin)
-	- [Should I have multiple (redundant) backups?](#Should-I-have-multiple-redundant-backups)
+	- [Should I have multiple (redundant) backups?](#should-i-have-multiple-redundant-backups-of-my-seed)
 	- [How can I store my seed](#How-can-I-store-my-seed)
 	- [Can I 'encrypt' my seed so that all is not lost if someone finds my mnemonic?](#Can-I-encrypt-my-seed-so-that-all-is-not-lost-if-someone-finds-my-mnemonic)
 	- [Paper Backups](#Paper-Backups)
 	- [Metal Backups](#Metal-Backups)
-	- [Should I split my mnemonic in two and Hide 6 words in Location A & 6 words in Location B?](#Should-I-split-my-mnemonic-in-two-and-Hide-6-words-in-Location-A-&-6-words-in-Location-B)
+	- [Should I split my mnemonic in two (short version)?](#should-i-split-my-mnemonic-in-two-short-version)
+	- [Should I split my mnemonic in two (long version)?](#should-i-split-my-mnemonic-in-two-long-version)
+	- [Should I split my seed ABC into AB|BC|CA?](#should-i-split-my-seed-abc-into-abbcca)
+	
 4) [**Using your Seed**](#4-Using-your-Seed)
 	- [Can I recover my bitcoin without my seed?](#Can-I-recover-my-bitcoin-without-my-seed)
 	- [Can I recover my bitcoin without my passphrase?](#Can-I-recover-my-bitcoin-without-my-passphrase)
 	- [I have forgotten my passphrase, what now?](#I-have-forgotten-my-passphrase-what-now)
 	- [How should I recover bitcoin using my seed?](#How-should-I-recover-bitcoin-using-my-seed)
 	- [What is the Derivation Path?](#What-is-the-Derivation-Path)
-	- [How often should I check backups?](#How-often-should-I-check-backups?)
+	- [How often should I check backups?](#how-often-should-i-check-backups)
 
 # 1) The Basics
 
@@ -132,7 +135,7 @@ Initially let us consider the case where you store a single unencrypted mnemonic
 
 *[1] There are many ways to do this, some are better than others - see Lopp's [initial comparison](https://medium.com/@lopp/metal-bitcoin-seed-storage-stress-test-21f47cf8e6f5) & more recent comparison: [Medium](https://medium.com/@lopp/metal-bitcoin-seed-storage-stress-test-part-ii-d309e04aefeb) [Youtube](https://youtu.be/zFN__b6ARH4?t=20593)*
 
-*[2] Often referred  to as a [Brain Wallet](https://en.bitcoin.it/wiki/Brainwallet) - Not to be confused with a wallet which you generate the mnemonic for using your brain (i.e. sentence from a book) a Brain Wallet is a wallet for which you have memorised a mnemonic which was generated securely using a source of entropy.*
+*[2] Often referred  to as a [Brain Wallet](https://en.bitcoin.it/wiki/Brainwallet) - Not to be confused with a wallet where you generate the mnemonic using your brain (i.e. sentence from a book) a Brain Wallet is a wallet with a memorised mnemonic which was generated securely using a source of entropy.*
 
 There are three methods that are both Resistant to Theft and Durable;
 - Handwritten Paper Note in a Bank Deposit Box
@@ -178,6 +181,7 @@ If you do decide to use a paper backup:
 - Write on a hard surface so you don't indent the paper below
 - You can increase the durability of your paper backup by laminating it
 - Consider labelling your seed discreetly. Something labelled 'BITCOIN SEED' is more likely to be swept (stolen) than if you label it 'COOKIE RECEPIE', though it may be easy to forget that you did this. 
+- Laminate the paper
 
 Learn More: [Here](https://www.quora.com/How-do-I-maintain-a-paper-notebook-that-can-remain-for-years) and [Here](https://www.quora.com/If-I-write-with-a-pencil-on-my-notebook-will-the-writing-last-for-a-long-time-say-50-years-or-will-it-just-fade-away-gradually)
 
@@ -186,13 +190,52 @@ Learn More: [Here](https://www.quora.com/How-do-I-maintain-a-paper-notebook-that
 There are lots of options available. See Lopp's [initial comparison](https://medium.com/@lopp/metal-bitcoin-seed-storage-stress-test-21f47cf8e6f5) & [more recent comparison](https://youtu.be/zFN__b6ARH4?t=20593).
 The [Blockplate 1.0](https://www.blockplate.com/) appears to hold up well to fire / crushing while being easy to use.
 
-### Should I split my mnemonic in two and Hide 6 words in Location A & 6 words in Location B?
+### Should I split my mnemonic in two (short version)?
 
-This reduces the cryptographic security of your backup (it is far easier to brute force the private key with 6 mnemonic words already known than with none known). 
+This reduces the cryptographic security of your backup (it is far easier to brute force the private key with half the mnemonic words already known than with none known). 
 
-That said, the thief would have to know what the 6 words are and either spend time cracking the seed themselves or sell the words to someone who would have no way to know the bitcoin they could steal before cracking the seed (so may be unwilling to pay for the first/last 6 words). 
+That said, the thief would have to know what the words are and either spend time cracking the seed themselves or sell the words to someone who would have no way to know the bitcoin they could steal before cracking the seed (so may be unwilling to pay for the first/last words).
+
+If you are going to do this be sure to use a 24 word mnemonic seed (not a 12 word mnemonic seed). 
 
 It is better to use [shamir secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing) to split the seed into 2 secrets, this way each piece of information is useless in isolation, and it is impossible to brute force the private key. The secrets can be recombined to recover the seed. You can also add redundancy, requiring say 2 of 3 of the secrets, or 3 of 5 (or any N of M). This said, there are currently no easy to use tools to split a seed using shamirs secret sharing that I have tried and can recommend - please let me know ([@6102bitcoin](https://twitter.com/6102bitcoin)) if you can recommend any.
+
+### Should I split my mnemonic in two (long version)?
+
+If an attacker knows the first/last 12 words of a 24 word seed the security against a brute force attack is greatly reduced (compared to brute forcing with none of the words known). Importantly it is more than twice as easy to brute force the half known seed (to understand without going into too much detail consider that 2^24 is 4096 times greater than 2^12).
+
+All else being equal you should make it impossible for an attacker to access to any of your seed words.
+
+In reality, all else is often not equal. It is important to consider the relative security of the options available to an individual when discussing bitcoin seed security. 
+
+Take Alice & Bob;
+- Alice stores a full copy of her seed (24 words) in location A and a second full copy of her seed (24 words) in location B.
+- Bob stores half his seed (12 words) in location A and the other half (12 words) in location B.
+
+If an attacker (Charlie) goes to location A he can easily steal Alice's bitcoin with minimal effort or technical expertise - he simply has to identify that what he has found is a bitcoin seed and use a tool to try different derivation paths for the seed until he finds bitcoin to steal.
+
+For Charlie to steal bob's bitcoin he will have to identify that he has found half a bitcoin wallet and then brute force the remaining 12 words. It is possible that he would be able to brute force Bob's seed given enough time, but it is also possible that the attacked would not be technically competent enough to brute force the seed, or that he wouldn't even realise that he has 12 words of a 24 word seed (perhaps he would assume that it's an invalid 12 word seed).
+
+It would be natural to conclude that Bob's bitcoin seed is more secure than Alice's.
+
+But now consider what would happen if Charlie is an arsonist (not a thief) and he sets location A on fire.
+
+Regardless of how Alice stored her seed (on paper, stamped on metal etc.) she has a full backup in location B - she does not lose her bitcoin.
+For Bob, how he stored his seed is now essential. He has no full backups, no redundancy. If the seed in location A is lost then so are all his bitcoin. Even if he stamped his seed into a metal plate it is possible that location A is an old building which collapsed in the fire, and his metal plate is buried under tonnes of brick and iron.
+
+It would be natural to conclude that Alice's bitcoin are more secure then Bob's.
+
+This example was simply meant to highlight that it is easy to forget that there are often trade-offs when it comes to securing your bitcoin seed. Though you should take care to minimise the risks posed by a sophisticated attacker capable of brute forcing half a 24 word seed you should first limit your exposure to risks which are more likely to pose a realistic threat (such as fire / malware / social attacks). 
+
+### Should I split my seed ABC into AB|BC|CA?
+
+People will suggest using 3 partial seeds to a 24 word mnemonic seed, each with 16 words i.e. [1-16] , [9-24] , [17-24 & 1-8]. This does give some redundancy, but as discussed previously the relationship between number of revealed seed words and security against brute force attack is not linear. 
+
+As a simple exercise to compare of relative strength of 24, 12 and 8 unknown bits (0/1) compare the number of combinations possible. 2^24 = 16777216, 2^12 = 4096, 2^8 = 256. 
+
+There are ~ 4000 times fewer combinations of 12 bits than there are 24 bits, and ~65000 times fewer combinations of 8 bits than 24 bits. Other people will be able to crunch the actual numbers for BIP38 seeds, and it may be that the security of this method is still sufficiently high that it is a reasonable approach for almost everyone (excluding those which huge bitcoin holdings).   
+
+This method (splitting seed into three 2/3 pieces) is simple, and does not require evaluation of any additional code (as is required for Shamir's Secret Sharing) but it does significantly lower the security against brute force attacks.
 
 # 4) Using your seed
 
