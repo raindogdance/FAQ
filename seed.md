@@ -90,7 +90,7 @@ For this reason, with non-trivial amounts of bitcoin it is crucial that you care
 
 That said, some hardware wallets are better than others so make sure that you never enter your seed into your computer - only enter it into the device itself.
 
-Another option is to generate a seed using a clean computer which is not connected to the internet.
+Another option is to generate a seed using a clean computer which is not connected to the Internet.
 
 ### Does the order of the words matter?
 Yes! The order of the words in a mnemonic seed does matter. You must store your mnemonic seed in such a way that the order of the words is clear and unambiguous. Remember - the mnemonic seed is simply an encoding of the seed which is a large number, if you get the order wrong then you will decode a different number.
@@ -103,7 +103,7 @@ It is important to note that it is generally insecure to create your own seed as
 
 ### Should I check my seed?
 
-You should definitely check your backup as part of your process for backing up. Failure to do so could lead to you losing your bitcoin - don't risk it. Part of checking the backup is checking that you have correctly recorded your seed, though this is not the whole process. You should additionally check that you know the derivation path the passphrase (if you used one).   
+You should definitely check your backup as part of your process for backing up. Failure to do so could lead to you losing your bitcoin - don't risk it. Part of checking the backup is checking that you have correctly recorded your seed, though this is not the whole process. You should additionally check that you know the derivation path the passphrase (if you used one).
 
 # 3) Storing your Seed
 
@@ -172,7 +172,7 @@ You can take your mnemonic seed and use any encryption method to ensure that you
 You use either Physical or Digital Encryption Tools;
 
 - **Physical Encryption Tool** ([e.g. Enigma](https://en.wikipedia.org/wiki/Enigma_machine) / [One Time Pad](https://en.wikipedia.org/wiki/One-time_pad)): Clearly if you are using a physical encryption tool you will need to ensure that the tool is commonly available so that you can decode when required. Enigma Machines are hard to come by - so they are not a practical solution. The One Time Pad provides perfect encryption, but remember - anyone with physical access to the pad can decode the mnemonic.
-- **Digital Encryption Tool** ([e.g. VeraCrypt](https://www.veracrypt.fr/en/Home.html)): If you are using a digital encryption tool you will need to ensure that the computer on which you are encrypting/decrypting data is secure. The easiest way to do this is to use a temporary OS like [tails](https://tails.boum.org) on an old computer which is not connected to the internet. 
+- **Digital Encryption Tool** ([e.g. VeraCrypt](https://www.veracrypt.fr/en/Home.html)): If you are using a digital encryption tool you will need to ensure that the computer on which you are encrypting/decrypting data is secure. The easiest way to do this is to use a temporary OS like [tails](https://tails.boum.org) on an old computer which is not connected to the Internet. 
 	
 ### Paper Backups
 
@@ -198,7 +198,8 @@ That said, the thief would have to know what the words are and either spend time
 
 If you are going to do this be sure to use a 24 word mnemonic seed (not a 12 word mnemonic seed). 
 
-It is better to use [shamir secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing) to split the seed into 2 secrets, this way each piece of information is useless in isolation, and it is impossible to brute force the private key. The secrets can be recombined to recover the seed. You can also add redundancy, requiring say 2 of 3 of the secrets, or 3 of 5 (or any N of M). This said, there are currently no easy to use tools to split a seed using shamirs secret sharing that I have tried and can recommend - please let me know ([@6102bitcoin](https://twitter.com/6102bitcoin)) if you can recommend any.
+It is better to use [Shamir's secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing) to split the seed into 2 secrets, this way each piece of information is useless in isolation, and it is impossible to brute force the private key. The secrets can be recombined to recover the seed. You can also add redundancy, requiring say 2 of 3 of the secrets, or 3 of 5 (or any N of M). TailsOS comes with a pre-installed commandline tool called [ssss](http://point-at-infinity.org/ssss/) for this purpose. 
+Please let me know ([@6102bitcoin](https://twitter.com/6102bitcoin)) if you can recommend any others.
 
 ### Should I split my mnemonic in two (long version)?
 
