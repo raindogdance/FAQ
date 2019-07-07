@@ -21,7 +21,7 @@ Also read the [official guides](https://support.samourai.io/section/38-whirlpool
 
 ### Who is behind Whirlpool?
 
-The Company that is developing Wasabi is [Katana Cryptographic](https://katanacrypto.com/) who are best known for developing [Samourai Wallet](https://samouraiwallet.com/) - a superb mobile (currently android only) bitcoin wallet.
+The Company that is developing Whirlpool is [Katana Cryptographic](https://katanacrypto.com/) who are best known for developing [Samourai Wallet](https://samouraiwallet.com/) - a superb mobile (currently android only) bitcoin wallet.
 
 ### What is Whirlpool?
 
