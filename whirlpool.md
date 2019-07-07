@@ -83,6 +83,7 @@ You need to [download](https://play.google.com/store/apps/details?id=com.samoura
 Once you have whirlpool installed & Samourai Wallet installed you must 'pair' these tools so that they can access your bitcoin. This is done by copying a `paring string` from the Samourai Wallet app into the Whirlpool GUI. 
 
 It is very important **that you do this securely**; this paring string includes your mnemonic (from which all your bitcoin private keys are calculated).
+The mnemonic is encrypted with your passphrase, but it is still important to transmit it securely.
 
 ### Forgotten Passphrase?
 
