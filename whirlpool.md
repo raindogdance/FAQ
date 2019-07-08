@@ -40,7 +40,7 @@ You need to install whirlpool & Samourai Wallet.
 ### Do I need to run DOJO?
 
 You do NOT need DOJO to try out whirlpool. The Samourai Wallet servers know your xpubs (your public keys) if you do not run DOJO. Thus, it is better to run DOJO when mixing. 
-That said, whirlpool helps reduce your on-chain privacy from 3rd parties, even if samourai were malicious these tools used properly help you. 
+Whirlpool helps reduce your on-chain privacy from 3rd parties, if samourai were malicious these tools still obscure your onchain record. 
 It will be possible to use DOJO with whirlpool in the future.
 
 ### Install Whirlpool (To mix bitcoin)
@@ -49,7 +49,7 @@ It will be possible to use DOJO with whirlpool in the future.
 You currently need to [download](https://github.com/Samourai-Wallet/whirlpool-gui/releases/latest) and run the latest whirlpool release on a computer (Windows/OSX/Linux), note an android app is being internally tested.
 Note that you need to [install JAVA](https://openjdk.java.net/).
 
-#### Step by Step for Linux
+#### Step by Step for Linux (debian distros)
 
 1. Downloaded tar.gz from [latest releases](https://github.com/Samourai-Wallet/whirlpool-gui/releases/latest)
 2. Extracted to folder
@@ -143,9 +143,7 @@ Yes, whirlpool must be running to keep mixing.
 
 ### What are the fees?
 
-You currently pay a one-off fee of 5% to start mixing a bitcoin UTXO (the Tx0). As long as you leave the UTXO in the mix your Anonymity set will increase at no additional cost. 
-
-Importantly this is 5% of the pool denomination not 5% of the amount being mixed, so 0.05 BTC pool is 0.0025 BTC fee regardless of how much is being mixed & 0.01 BTC pool is 0.0005 BTC fee.
+You currently pay a one-off fee of 5% of the pool fee to start mixing a bitcoin UTXO (the Tx0). As long as you leave the UTXO in the mix your Anonymity set will increase at no additional cost. Note, this is 5% of the pool denomination not 5% of the amount being mixed, so 0.05 BTC pool is 0.0025 BTC fee regardless of how much is being mixed & 0.01 BTC pool is 0.0005 BTC fee.
 
 The more you mix and the longer you stay in pool the cheaper whirlpool becomes (relative to other mixing tools). Whirlpool can be expensive if you are mixing in a pool denomination that is too large for the amount you're mixing.
 
@@ -158,7 +156,7 @@ Once you pay your mix fee you should always wait for the mix to complete. In an 
 | Characteristic | Whirlpool                                | Wasabi  |
 | -------------- | ---------------                          | ------  |
 | Pool Size      | 0.05 & 0.01                              | 0.1     |
-| Fee            | 5%                                       | 0.003% * Anonymity Set  |
+| Fee            | 5% of pool size                          | 0.003% * Anonymity Set  |
 
 **More Fee Info**
 
@@ -285,7 +283,7 @@ It is very important that you don't send different coins to the same receiving a
 - Mix with [Joinmarket](https://github.com/JoinMarket-Org/joinmarket-clientserver).
 - Donate them (e.g. [to the EFF](https://www.eff.org/))
 - Spend them on something that isn't a particular privacy risk (eg. gift cards).
-- Open a lightning channel. 
+- Open a lightning channel (note opening large number of public channels could link your change together). 
 - The ultimate solution is to 'close the loop' i.e. spend a change coin without merging it with other coins don't generate it in the first place by sending whole coins. 
 
 ### History of spent coins
@@ -340,6 +338,12 @@ If your transactions have not confirmed the client won't be doing anything and m
 To resolve this wait for the confirmations to confirm.
 
 If you have disabled automix or stopped the client just start again (click start in the top right).
+
+### Error spawn java ENOENT
+Make sure Java is installed on your device and is correctly included in your PATH.
+
+### MIX:ERROR
+A mix can fail for a number of reasons, and doesn't indicate that anything is wrong with your particular configuration.  Under default configuration UTXOs that have failed should automatically be queued after a short period of time. If they don't you can feel free to restart them manually by pressing the "mix" button
 
 # Acknowledgements
 
