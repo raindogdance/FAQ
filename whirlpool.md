@@ -4,18 +4,22 @@ By [6102bitcoin](https://twitter.com/6102bitcoin)
 Note: Many of these Q&A have been copied from real users, see footer for acknowledgements. 
 
 # Index
+- Overview
 - Pre-Install
 - Install
 - Deposit
-- Pre-Mix
-- Mixing
+- Pre-Mix / Mixing
 - Post-Mix
 - Meta
 - Acknowledgements
 
-There are a few short [video guides](https://www.youtube.com/watch?v=0FiIGhi3_R0&list=PLIBmWVGQhizIWHyDkY-AzYc-Rn_3zGRct) produced by the developers which are very useful.
+# Overview
 
-Also read the [official guides](https://support.samourai.io/section/38-whirlpool).
+The general overview is install whirlpool, connect to Samourai Wallet, deposit bitcoin, mix, spend from samourai wallet.
+
+There are a few short [video guides](https://www.youtube.com/watch?v=0FiIGhi3_R0&list=PLIBmWVGQhizIWHyDkY-AzYc-Rn_3zGRct) produced by the developers which are very useful for some of these steps.
+
+The [official whirlpool guides](https://support.samourai.io/section/38-whirlpool) are important to read, though I have included some of that content below.
 
 # Pre-Install
 
@@ -36,12 +40,6 @@ Another important thing to highlight is that Whirlpool is currently in 'PUBLIC B
 ### How do I install Whirlpool?
 
 You need to install whirlpool & Samourai Wallet. 
-
-### Do I need to run DOJO?
-
-You do NOT need DOJO to try out whirlpool. The Samourai Wallet servers know your xpubs (your public keys) if you do not run DOJO. Thus, it is better to run DOJO when mixing. 
-Whirlpool helps reduce your on-chain privacy from 3rd parties, if samourai were malicious these tools still obscure your onchain record. 
-It will be possible to use DOJO with whirlpool in the future.
 
 ### Install Whirlpool (To mix bitcoin)
 
@@ -79,11 +77,25 @@ You need to [download](https://play.google.com/store/apps/details?id=com.samoura
 
 *note: It is possible to emulate the app if you do not have an android device*
 
+A direct APK download will be available on the website only after 1.0 release. If you require it now, you either need to compile it yourself or download from [google play](https://play.google.com/store/apps/details?id=com.samourai.wallet).
+
+### How do I connect Whirlpool to my own full node?
+
+You need to run DOJO to connect Whirlpool to your own node. Dojo is another free piece of software produced by the developers of Samourai Wallet. This is not yet possible but **will be possible soon**.
+
+You do **NOT** need DOJO to try out whirlpool, but the Samourai Wallet server knows your xpubs (your public keys) if you do not run DOJO. Thus, it is better to run DOJO when mixing and **this will be possible in the future (remember, whirlpool is currently in `PUBLIC BETA`).** 
+
 ### Pairing
 Once you have whirlpool installed & Samourai Wallet installed you must 'pair' these tools so that they can access your bitcoin. This is done by copying a `paring string` from the Samourai Wallet app into the Whirlpool GUI. 
 
 It is very important **that you do this securely**; this paring string includes your mnemonic (from which all your bitcoin private keys are calculated).
 The mnemonic is encrypted with your passphrase, but it is still important to transmit it securely.
+
+Read the [full pairing guide](https://support.samourai.io/article/76-pairing-samourai-wallet-to-whirlpool-desktop).
+
+### Configurations 
+
+There are [detailed configuration options](https://support.samourai.io/article/77-understanding-whirlpool-desktop-configuration-options) which can be explored, though this is not nececcary.
 
 ### Forgotten Passphrase?
 
@@ -91,15 +103,23 @@ If you go to your Samourai Wallet and navigate to Settings > Troubleshooting > T
 
 If you can't remember your passphrase you can also create a new wallet, **but you must send any BTC from the old wallet first!**
 
-### Is there an APK direct download?
-
-It will be available on the website only after 1.0 release. If you require it now, you either need to compile it yourself or download from [google play](https://play.google.com/store/apps/details?id=com.samourai.wallet).
-
 ### Do I need to run Tor?
 
 All whirlpool network traffic can be set to go via Tor; you will see this clearly when setting up whirlpool. 
 
 # Deposit
+
+The deposit 'account' consists of all the bech32 UTXOs within your standard Samourai Wallet. UTXOs in this account have not been cycled through Whirlpool yet. You can receive deposits directly into this account or select UTXOs from this account to cycle.
+
+### How to deposit
+
+#### Deposit from an external wallet:
+
+If you do not have any UTXOs in your Samourai Wallet, you can generate a deposit address for your wallet by pressing the red `+Deposit` button within the desktop client. Once the deposited funds have received one confirmation they will be ready to be cycled.
+
+#### Choose UTXO(s) from your Samourai Wallet:
+
+Within the Desktop Client navigate to the Deposit tab directly under `Last Activity` on the left hand side of the screen. The Deposit account contains all the bech32 UTXOs in your paired Samourai Wallet. Once the deposit tab has been selected a list of your bech32 UTXOs in Samourai Wallet will be displayed. 
 
 ### Bitcoin in my Samourai Wallet isn't showing up in Whirlpool!
 
@@ -126,11 +146,11 @@ You must have a single UTXO with a balance larger than the pool size (i.e. a 0.0
 
 Note that doing so is bad for privacy and you could be damaging your privacy by linking past actions to coins which are 'tainted'. It is better to wait for smaller pools than mix coins which are from different sources. 
 
-If the coins you are mixing have come directly from the same source (i.e. a tipping service) there is no loss of privacy in recombining them. 
+If the coins you are mixing have come **directly** from the same source (i.e. a tipping service) there is no loss of privacy in recombining them. 
 
-# Pre-Mixing
+# Pre-Mixing / Mixing
 
-# Mixing
+This 'account' consists of all the UTXOs that are prepared to cycle but are still pending. UTXOs will remain in Premix until they have one confirmation and they are selected in a Whirlpool cycle. These UTXOs cannot be spent yet but will have priority in any Whirlpool cycle over UTXOs in the Postmix Account.
 
 ### How long does a mix take?
 
@@ -142,6 +162,10 @@ pre-mix is faster than post-mix.
 Yes, whirlpool must be running to keep mixing. 
 
 ### What are the fees?
+
+Whirlpool is different than other CoinJoin services, in that you do not pay a volume based fee per anonymity set, but instead you pay a one time flat fee for an unlimited anonymity set.
+
+To put it simply, it costs the same in Pool Fees to cycle 1 BTC or 1000 BTC. Once the pool fee is paid, it costs nothing to continue cycling. With each cycle you gain a greater privacy advantage with a deeper anonymity set.
 
 You currently pay a one-off fee of 5% of the pool fee to start mixing a bitcoin UTXO (the Tx0). As long as you leave the UTXO in the mix your Anonymity set will increase at no additional cost. Note, this is 5% of the pool denomination not 5% of the amount being mixed, so 0.05 BTC pool is 0.0025 BTC fee regardless of how much is being mixed & 0.01 BTC pool is 0.0005 BTC fee.
 
@@ -178,6 +202,8 @@ Take care when estimating the anonymity set of coins. The anonymity set of a sin
 
 ### Which pool should I use?
 
+The denomination of the pool determines the minimum amount you can cycle through that pool and the resulting denomination of the newly cycled UTXOs in your wallet.  Generally the larger the UTXO you are cycling, the larger the pool you want to choose. 
+
 You should choose a pool size based on a few things,
 
 1. The amount being mixed, you obviously don't want to mix 0.06 in the 0.05 pool, as you will be paying about 5% in fees, the 0.01 pool would be more cost effective. That being said mixing 10 BTC in a small pool would be very cheap on a pool fee level, but you would make up for it in miner fees paid.
@@ -192,13 +218,19 @@ It very easy for the developers to create new pools but they don't want to fract
 Yes. 
 In the 0.01 BTC Pool you can deposit 1 BTC which will be split into 100 separate UTXO's. The cost is the same as mixing in the 0.05 BTC pool but in this pool the bitcoin will be split into 20 UTXO's. 
 
-### How do I connect my own full node to Whirlpool?
+### How do I join a pool?
 
-You need to connect Whirlpool to your DOJO (another free piece of software produced by the developers of Samourai Wallet). This will be possible soon.
+With the `Deposit` tab selected, you will see a list of bech32 UTXOs available on the right hand side of the screen
+
+1. Press the red Tx0 button on the far right side of a confirmed UTXO to open the pool selection screen
+2. Select a miner fee profile, the higher you pay in miner fees the quicker your UTXOs will confirm, and the quicker your cycle will complete.
+3. Select a pool, you generally want to choose the largest pool you can based on the amount of the UTXO you are cycling.
+4. Select a target number of cycle, this can be left as 1 as you can later cycle these UTXOs manually. If you set a number higher than 1 the UTXOs will be cycled automatically until they reach the target.
+5. Press the red Tx0 button on the bottom of the pop up modal to begin the process. 
 
 ### It's not mixing!
 
-This is still a BETA, adoption is low at the moment meaning mixing is happening slowly. It is possible that there are mixes but that you have been unlucky and not randomly selected. As adoption grows this issue will disappear.
+This is still a BETA, adoption is low at the moment meaning mixing is happening slowly. It is possible that there are mixes but that you have been unlucky and not randomly selected. As adoption grows this issue will disappear. See the [Errors section](#Errors) if you have any displayed errors.
 
 ### Priority
 
@@ -206,26 +238,28 @@ Fee payers are always given priority, post-mixers need to be randomly selected. 
 
 # Post-Mix
 
+This 'account' consists of all the UTXOs that have completed at least one cycle. These UTXOs are available for spending from within Samourai Wallet or available to cycle again for greater privacy.
+
 ### What do I do now?
 If you have a post-mix UTXO you can spend it, or once all your pre-mix are done, you can remix them.
+
+Whirlpool has been designed with extensive privacy enhancing strategies that help make sure you do not undo the privacy gains of Whirlpool when you go to spend your UTXOs.
+
+It is advised that you keep your funds within Whirlpool and directly spend using your Samourai Wallet on an as needed basis. This will allow you to take advantage of our superior coin selection and post mix spending tools, making it very hard to accidentally undo the privacy gains of Whirlpool.
 
 ### How do I spend?
 
 To spend from post-mix whirlpool go to Samourai Wallet, go to the ☰ icon at the top right -> "spend from post-mix Whirlpool". You can then press ☰ again and click "Show unspent outputs" (once inside the "Spend from post-mix whirlpool" menu) to see all your UTXOs.
 
-### Sending to another Samourai Wallet user
+### Post-Mix Spending Fees
 
-Sending to another Samourai Wallet user is the same as sending to any bitcoin address and the same privacy rules apply. However, some additional Post Mix spending tools are available only between Samourai Wallet users. An example of this is Stowaway, which is a CoinJoin with a trusted friend that doesn't look like a CoinJoin and masks the true amount spent on the blockchain.
+None of the post-mix spending costs any additional fees.
 
 ### Where does the change go?
 
 UI on mobile has not been fully implemented. The change outputs went back to the post-mix account. If you load up your Whirlpool Desktop GUI you will see them in the post-mix tab, they will be greyed out. It is still "mixed", spending doesn't unmix it, especially if spent via STONEWALL at least. 
 
 From the post-mix spend screen in Samourai you can view the UTXO list, and reveal the private keys for those change UTXOs. Additionally you can calculate the private keys for all your addresses (including whirlpool pre-mix and post-mix) from the Address Calculator in Settings > Troubleshooting.
-
-### Post-Mix Spending Fees
-
-None of the post-mix spending costs any additional fees.
 
 ### STONEWALL
 
@@ -249,11 +283,9 @@ A [stowaway](https://support.samourai.io/article/73-creating-a-stowaway-transact
 From the Spend From post-mix screen in the Samourai Wallet you cannot do a ricochet yet. If you wanted to do a [Ricochet](https://support.samourai.io/article/14-making-your-first-ricochet-send) you would first need to sweep to your main Samourai Wallet account. 
 This will incur an additional fee which is clearly displayed in the sending process.
 
-### Can I recombine my mixed coins?
+### Sending to another Samourai Wallet user
 
-It is advisable to limit the recombining of mixed coins because it can only decrease the privacy of said coins. This links all the consolidated UTXOs in one transaction, creating only one output, which then clearly controls all these funds. As a result it is best not to recombine your mixed change. 
-
-That said, be aware that the fee required to spend multiple UTXO's is higher than the fee required to spend a single UTXO, for this reason you should use the largest pool possible when mixing funds (don't split a 1 BTC UTXO into 100 separate 0.01 BTC UTXO's).
+Sending to another Samourai Wallet user is the same as sending to any bitcoin address and the same privacy rules apply. However, some additional Post Mix spending tools are available only between Samourai Wallet users. An example of this is Stowaway, which is a CoinJoin with a trusted friend that doesn't look like a CoinJoin and masks the true amount spent on the blockchain.
 
 ### Am I safe to send my mixed coins to my hardware wallet?
 
@@ -261,11 +293,34 @@ The post-mix spending tools built into Whirlpool/Samourai Wallet are second to n
 
 ### I want to send to my hardware wallet!
 
-#### Default Software 
+#### **DO NOT:** 
+- Spend the entire balance in Whirlpool Postmix to a single address on your wallet / cold storage device. This is known as merging inputs and completely undoes the privacy gains provided by Whirlpool.  
+- Use the Default Hardware Wallet Software 
 Most hardware wallets communicate with servers to provide you with your balance. This reveals your public key to the server, which damages your privacy - the hardware company can now theoretically link together all your addresses. As a result **it is not recommended** that you send your mixed coins to an address associated with your hardware wallet unless you are confident that you have set up your hardware wallet in a way that it does not communicate with a 3rd party server (see below). 
 
-#### Specialist Software
-You can use your hardware wallet with Electrum, which connects to your Bitcoin Core through [Electrum Personal Server](https://github.com/chris-belcher/electrum-personal-server). Wait until post-mix is done, and then spend from the post-mix spend screen - If you are sending less than half of your post-mix balance the wallet will automatically turn on STONEWALL. If the wallet cannot turn it on it will warn you that it cannot, in this case you can then send each UTXO, one by one into your hardware wallet, ideally not all at the same time (leave a random multi hour delay between sweeps) and not all with the same fee rate. 
+#### **DO:**
+- Use your hardware wallet with Electrum, which connects to your Bitcoin Core through [Electrum Personal Server](https://github.com/chris-belcher/electrum-personal-server).
+- Wait until post-mix is done, and then spend from the post-mix spend screen - If you are sending less than half of your post-mix balance the wallet will automatically turn on STONEWALL. If the wallet cannot turn it on it will warn you that it cannot, in this case you can then send each UTXO, one by one into your hardware wallet, ideally not all at the same time (leave a random multi hour delay between sweeps) and not all with the same fee rate. 
+
+### I want to spend my coins at a third party service!
+
+Navigate to the PostMix Send Screen in your Samourai Wallet and create a transaction as you normally would. If it is possible your wallet will enable STONEWALL automatically - this will provide you with additional entropy and is considered the minimum requirement for sending from your PostMix balance with minimal privacy loss. 
+
+If a STONEWALL cannot be created your wallet will warn you before sending. Please follow the guidelines below if you are unable to activate STONEWALL.
+
+#### **DO NOT:**
+- Ignore the warning. If STONEWALL cannot be activated, it means you are going to degrade your privacy and the privacy of your counterparts involved in the cycle. 
+
+#### **DO:**
+- Spend a smaller amount. STONEWALL activates when spending less than half of your available balance.
+- Add more UTXOs to your Whirlpool wallet so that the amount you need to spend is less than half of your available balance.
+- Enlist the help of a friend to create a STONEWALLx2 transaction. This is very much like a normal STONEWALL but you are using a trusted friends UTXOs in addition to your own. This has the added benefit of additional mixing within the spend transaction and you can spend more than half of your available balance. 
+
+### Can I recombine my mixed coins?
+
+It is advisable to limit the recombining of mixed coins because it can only decrease the privacy of said coins. This links all the consolidated UTXOs in one transaction, creating only one output, which then clearly controls all these funds. As a result it is best not to recombine your mixed change. 
+
+That said, be aware that the fee required to spend multiple UTXO's is higher than the fee required to spend a single UTXO, for this reason you should use the largest pool possible when mixing funds (don't split a 1 BTC UTXO into 100 separate 0.01 BTC UTXO's).
 
 ### What do I do with the unmixed change?
 
