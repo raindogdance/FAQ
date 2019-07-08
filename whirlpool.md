@@ -4,14 +4,60 @@ By [6102bitcoin](https://twitter.com/6102bitcoin)
 Note: Many of these Q&A have been copied from real users, see footer for acknowledgements. 
 
 # Index
-- Overview
-- Pre-Install
-- Install
-- Deposit
-- Pre-Mix / Mixing
-- Post-Mix
-- Meta
-- Acknowledgements
+- [Overview](#overview)
+- [Pre-Install](#pre-install)
+	- [Who is behind Whirlpool?](#who-is-behind-whirlpool)
+	- [What is Whirlpool?](#what-is-whirlpool)
+- [Install](#install)
+	- [How do I install Whirlpool?](#how-do-i-install-whirlpool)
+	- [How do I connect Whirlpool to my own full node?](#how-do-i-connect-whirlpool-to-my-own-full-node)
+	- [Paring](#pairing)
+	- [Configurations](#configurations)
+	- [Forgotten Passphrase?](#forgotten-passphrase)
+	- [Do I need to run Tor?](#do-i-need-to-run-tor)
+- [Deposit](#deposit)
+	- [How to deposit](#how-to-deposit)
+	- [Bitcoin in my Samourai Wallet isn't showing up in Whirlpool!](#bitcoin-in-my-samourai-wallet-isnt-showing-up-in-whirlpool)
+	- [My wallet can't send to Bech32 addresses - what wallets can I use instead?](#my-wallet-cant-send-to-bech32-addresses---what-wallets-can-i-use-instead)
+	- [Combining UTXO's](#combining-utxos)
+- [Pre-Mix / Mixing](h#pre-mixing--mixing)
+	- [How long does a mix take?](#how-long-does-a-mix-take)
+	- [Do I need to leave my computer on?](#do-i-need-to-leave-my-computer-on)
+	- [What are the fees?](#what-are-the-fees)
+	- [How do to the fees compare to wasabi?](#how-do-to-the-fees-compare-to-wasabi)
+	- [What is the Anonymity Set?](#what-is-the-anonymity-set)
+	- [Which pool should I use?](#which-pool-should-i-use)
+	- [Will there be more pools?](#will-there-be-more-pools)
+	- [Can I mix more than the pool minimum?](#can-i-mix-more-than-the-pool-minimum)
+	- [How do I join a pool?](#how-do-i-join-a-pool)
+	- [It's not mixing!](#its-not-mixing)
+	- [Priority](#priority)
+- [Post-Mix](#post-mix)
+	- [What do I do now?](#what-do-i-do-now)
+	- [How do I spend?](#how-do-i-spend)
+	- [Post-Mix Spending Fees](#post-mix-spending-fees)
+	- [Where does the change go?](#where-does-the-change-go)
+	- [STONEWALL](#stonewall)
+	- [STONEWALLx2](#stonewallx2)
+	- [STOWAWAY](#stowaway)
+	- [Ricochet](#ricochet)
+	- [Sending to another Samourai Wallet user](#sending-to-another-samourai-wallet-user)
+	- [Am I safe to send my mixed coins to my hardware wallet?](#am-i-safe-to-send-my-mixed-coins-to-my-hardware-wallet)
+	- [I want to send to my hardware wallet!](#i-want-to-send-to-my-hardware-wallet)
+	- [I want to spend my coins at a third party service!](#i-want-to-spend-my-coins-at-a-third-party-service)
+	- [Can I recombine my mixed coins?](#can-i-recombine-my-mixed-coins)
+	- [What do I do with the unmixed change?](#what-do-i-do-with-the-unmixed-change)
+	- [History of spent coins](#history-of-spent-coins)
+	- [Balance on Samourai Wallet is still 0!](#balance-on-samourai-wallet-is-still-0)
+	- [Locked funds, need to recover!](#locked-funds-need-to-recover)
+- [Meta](#meta)
+	- [Does Samourai Wallet have a warrant canary?](#does-samourai-wallet-have-a-warrant-canary)
+	- [Do I need to 'trust' the Whirlpool Server?](#do-i-need-to-trust-the-whirlpool-server)
+- [Errors](#errors)
+	- [Thread 1 Idle](thread-1-idle)
+	- [Error spawn java ENOENT](#error-spawn-java-enoent)
+	- [MIX:ERROR](#mixerror)
+- [Acknowledgements](#acknowledgements)
 
 # Overview
 
@@ -41,13 +87,13 @@ Another important thing to highlight is that Whirlpool is currently in 'PUBLIC B
 
 You need to install whirlpool & Samourai Wallet. 
 
-#### Install Whirlpool (To mix bitcoin)
+### Install Whirlpool (To mix bitcoin)
 
-##### Summary
+#### Summary
 You currently need to [download](https://github.com/Samourai-Wallet/whirlpool-gui/releases/latest) and run the latest whirlpool release on a computer (Windows/OSX/Linux), note an android app is being internally tested.
 Note that you need to [install JAVA](https://openjdk.java.net/).
 
-##### Step by Step for Linux (debian distros)
+#### Step by Step for Linux (debian distros)
 
 1. Downloaded tar.gz from [latest releases](https://github.com/Samourai-Wallet/whirlpool-gui/releases/latest)
 2. Extracted to folder
@@ -72,7 +118,7 @@ Note that you need to [install JAVA](https://openjdk.java.net/).
 21. Wait for confirmation.
 22. UTXO Appears in post-mix
 
-#### Install Samourai Wallet (To send bitcoin)
+### Install Samourai Wallet (To send bitcoin)
 You need to [download](https://play.google.com/store/apps/details?id=com.samourai.wallet) Samourai Wallet, currently available only on Android. 
 
 *note: It is possible to emulate the app if you do not have an android device*
