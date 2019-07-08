@@ -215,6 +215,10 @@ If you have a post-mix UTXO you can spend it, or once all your pre-mix are done,
 
 To spend from post-mix whirlpool go to Samourai Wallet, go to the ☰ icon at the top right -> "spend from post-mix Whirlpool". You can then press ☰ again and click "Show unspent outputs" (once inside the "Spend from post-mix whirlpool" menu) to see all your UTXOs.
 
+### Sending to another Samourai Wallet user
+
+Sending to another Samourai Wallet user is the same as sending to any bitcoin address and the same privacy rules apply. However, some additional Post Mix spending tools are available only between Samourai Wallet users. An example of this is Stowaway, which is a CoinJoin with a trusted friend that doesn't look like a CoinJoin and masks the true amount spent on the blockchain.
+
 ### Where does the change go?
 
 UI on mobile has not been fully implemented. The change outputs went back to the post-mix account. If you load up your Whirlpool Desktop GUI you will see them in the post-mix tab, they will be greyed out. It is still "mixed", spending doesn't unmix it, especially if spent via STONEWALL at least. 
