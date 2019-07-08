@@ -41,13 +41,13 @@ Another important thing to highlight is that Whirlpool is currently in 'PUBLIC B
 
 You need to install whirlpool & Samourai Wallet. 
 
-### Install Whirlpool (To mix bitcoin)
+#### Install Whirlpool (To mix bitcoin)
 
-#### Summary
+##### Summary
 You currently need to [download](https://github.com/Samourai-Wallet/whirlpool-gui/releases/latest) and run the latest whirlpool release on a computer (Windows/OSX/Linux), note an android app is being internally tested.
 Note that you need to [install JAVA](https://openjdk.java.net/).
 
-#### Step by Step for Linux (debian distros)
+##### Step by Step for Linux (debian distros)
 
 1. Downloaded tar.gz from [latest releases](https://github.com/Samourai-Wallet/whirlpool-gui/releases/latest)
 2. Extracted to folder
@@ -72,7 +72,7 @@ Note that you need to [install JAVA](https://openjdk.java.net/).
 21. Wait for confirmation.
 22. UTXO Appears in post-mix
 
-### Install Samourai Wallet (To send bitcoin)
+#### Install Samourai Wallet (To send bitcoin)
 You need to [download](https://play.google.com/store/apps/details?id=com.samourai.wallet) Samourai Wallet, currently available only on Android. 
 
 *note: It is possible to emulate the app if you do not have an android device*
