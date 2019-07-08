@@ -346,7 +346,7 @@ If you have disabled automix or stopped the client just start again (click start
 Thanks to the developers of Whirlpool.
 
 Thanks to the following people for the help that they have provided to whirlpool users on the whirlpool telegram group which I have condensed into this FAQ.
-- 'Nicholas'
+- [Nicholas](https://github.com/Technifocal)
 - [Samourai Wallet](https://twitter.com/SamouraiWallet)
 - [Samourai Dev](https://twitter.com/SamouraiDev)
 - [Ketominer](https://twitter.com/ketominer)
