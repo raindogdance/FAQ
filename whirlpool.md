@@ -145,6 +145,8 @@ Yes, whirlpool must be running to keep mixing.
 
 You currently pay a one-off fee of 5% to start mixing a bitcoin UTXO (the Tx0). As long as you leave the UTXO in the mix your Anonymity set will increase at no additional cost. 
 
+Importantly this is 5% of the pool denomination not 5% of the amount being mixed, so 0.05 BTC pool is 0.0025 BTC fee regardless of how much is being mixed & 0.01 BTC pool is 0.0005 BTC fee.
+
 The more you mix and the longer you stay in pool the cheaper whirlpool becomes (relative to other mixing tools). Whirlpool can be expensive if you are mixing in a pool denomination that is too large for the amount you're mixing.
 
 As mempool clears down, miner fees drop so time your Tx0 if you can.
